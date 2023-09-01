@@ -1,0 +1,3 @@
+*.F# linguist-detectable=true
+*.F# linguist-language=sql
+*.F# text
