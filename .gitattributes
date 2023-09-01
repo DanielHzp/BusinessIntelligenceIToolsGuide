@@ -1,0 +1,14 @@
+*.fs linguist-detectable=true
+*.fs linguist-documentation=false
+*.fs linguist-language=F#
+*.fsi linguist-detectable=true
+*.fsi linguist-documentation=false
+*.fsi linguist-language=F#
+*.fsx linguist-detectable=true
+*.fsx linguist-documentation=false
+*.fsx linguist-language=F#
+*.fsscript linguist-detectable=true
+*.fsscript linguist-documentation=false
+*.fsscript linguist-language=F#
+
+*.sql linguist-detectable=true
