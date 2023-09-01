@@ -1,0 +1,17 @@
+
+
+//Insert M code in Power Query advanced code editor
+
+
+let
+    Source = Excel.CurrentWorkbook(){[Name="Table1"]}[Content],
+	
+    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Course Code and Description", type text}, {"Category", type text}, {"Length", type text}}),
+	
+    #"Split Column by Delimiter" = Table.SplitColumn(#"Changed Type", "Course Code and Description", Splitter.SplitTextByEachDelimiter({" "}, QuoteStyle.Csv, false), {"Course Code and Description.1", "Course Code and Description.2"}),
+	
+    #"Changed Type1" = Table.TransformColumnTypes(#"Split Column by Delimiter",{{"Course Code and Description.1", Int64.Type}, {"Course Code and Description.2", type text}}),
+	
+    #"Renamed Columns" = Table.RenameColumns(#"Changed Type1",{{"Course Code and Description.1", "Course Code"}, {"Course Code and Description.2", "Course Description"}})
+in
+    #"Renamed Columns"

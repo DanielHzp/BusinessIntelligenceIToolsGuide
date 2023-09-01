@@ -1,0 +1,13 @@
+
+//Insert M code in Power Query advanced code editor
+let
+    Source = Access.Database(File.Contents("C:\Users\Desktop\Staff.accdb"), [CreateNavigationProperties=true]),
+	
+    _Staff = Source{[Schema="",Item="Staff"]}[Data],
+	
+    #"Changed Type" = Table.TransformColumnTypes(_Staff,{{"Start Date", type date}}),
+	
+    #"Merged Columns" = Table.CombineColumns(#"Changed Type",{"First Name", "Last Name"},Combiner.CombineTextByDelimiter(" ", QuoteStyle.None),"Staff Name ")
+in
+    #"Merged Columns"
+	
