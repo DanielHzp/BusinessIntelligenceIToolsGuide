@@ -10,3 +10,5 @@
 *.fsscript linguist-detectable=true
 *.fsscript linguist-documentation=false
 *.fsscript linguist-language=F#
+
+*.sql linguist-detectable=true
